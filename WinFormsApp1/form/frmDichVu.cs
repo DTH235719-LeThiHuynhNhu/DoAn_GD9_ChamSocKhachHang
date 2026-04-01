@@ -66,10 +66,8 @@ namespace ChamSocKhachHang.form
             picHinhAnh.DataBindings.Clear();
             picHinhAnh.DataBindings.Add("ImageLocation", bs, "HinhAnh");
 
-            // ❌ KHÔNG dùng trực tiếp nữa
-            // dataGridView1.DataSource = bs;
 
-            // ✅ Tạo bảng mới có ảnh
+            // Tạo bảng có ảnh
             var list = dv.Select(x => new
             {
                 x.ID,
@@ -83,10 +81,10 @@ namespace ChamSocKhachHang.form
 
             dataGridView1.DataSource = list;
 
-            // chỉnh chiều cao hàng
+            // chiều cao hàng
             dataGridView1.RowTemplate.Height = 60;
 
-            // chỉnh ảnh đẹp
+            // chỉnh ảnh 
             var col = (DataGridViewImageColumn)dataGridView1.Columns["HinhAnh"];
             col.ImageLayout = DataGridViewImageCellLayout.Zoom;
         }

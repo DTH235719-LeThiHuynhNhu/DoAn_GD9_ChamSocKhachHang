@@ -14,7 +14,7 @@ namespace ChamSocKhachHang.form
     public partial class frmKhachHang : Form
     {
         CSKHContext context = new CSKHContext(); // Khởi tạo biến ngữ cảnh CSDL
-        bool xuLyThem = false; // Kiểm tra có nhấn vào nút Thêm hay không?
+        bool xuLyThem = false; // Kiểm tra Thêm 
         int id; // Lấy mã loại sản phẩm (dùng cho Sửa và Xóa)
         public frmKhachHang()
         {
@@ -74,6 +74,12 @@ namespace ChamSocKhachHang.form
             if (string.IsNullOrWhiteSpace(txtTenKhachHang.Text))
             {
                 MessageBox.Show("Vui lòng nhập tên khách hàng!");
+                return;
+            }
+
+            if (!txtDienThoai.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("SĐT không hợp lệ!");
                 return;
             }
 
@@ -214,7 +220,6 @@ namespace ChamSocKhachHang.form
         private void RefreshData()
         {
             // Load lại toàn bộ danh sách khách hàng từ context mới nhất
-            // Lưu ý: .AsNoTracking() giúp lấy dữ liệu mới nhất nếu context bị cache
             var danhSach = context.KhachHangs.ToList();
             LoadKhachHang(danhSach);
         }

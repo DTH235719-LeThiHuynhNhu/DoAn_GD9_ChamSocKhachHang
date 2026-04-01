@@ -23,6 +23,8 @@ namespace ChamSocKhachHang.form
 
         private void frmLichHen_Load(object sender, EventArgs e)
         {
+
+
             BatTatChucNang(false);
 
             // Load khách hàng vào combobox
@@ -32,6 +34,8 @@ namespace ChamSocKhachHang.form
 
             dtpNgayHen.Format = DateTimePickerFormat.Custom;
             dtpNgayHen.CustomFormat = "dd/MM/yyyy";
+            //chan ngay qkhu
+            dtpNgayHen.MinDate = DateTime.Today;
 
             // Load lịch hẹn
             LoadLichHen(context.LichHens.ToList());
@@ -62,6 +66,12 @@ namespace ChamSocKhachHang.form
             }).ToList();
 
             dataGridView2.DataSource = data;
+            //dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+           // dataGridView2.Columns["TenKhachHang"].DefaultCellStyle.Alignment
+            // = DataGridViewContentAlignment.MiddleLeft;
+
+           ///dataGridView2.Columns["NgayHen"].DefaultCellStyle.Alignment
+               // = DataGridViewContentAlignment.MiddleCenter;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -72,6 +82,8 @@ namespace ChamSocKhachHang.form
             txtNoiDung.Clear();
             chkTrangThai.Checked = false;
             dtpNgayHen.Value = DateTime.Now;
+
+            
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -119,6 +131,11 @@ namespace ChamSocKhachHang.form
                 MessageBox.Show("Vui lòng nhập nội dung!");
                 return;
             }
+            if(string.IsNullOrWhiteSpace(txtNoiDung.Text))
+{
+                MessageBox.Show("Vui lòng nhập nội dung!");
+                return;
+            }
 
             if (xuLyThem)
             {
@@ -129,6 +146,8 @@ namespace ChamSocKhachHang.form
                 lh.TrangThai = chkTrangThai.Checked;
 
                 context.LichHens.Add(lh);
+
+
             }
             else
             {
@@ -141,6 +160,34 @@ namespace ChamSocKhachHang.form
                     lh.TrangThai = chkTrangThai.Checked;
                 }
             }
+
+
+            DateTime ngayChon = dtpNgayHen.Value.Date;
+
+            int soLuong = context.LichHens
+                .Count(x => x.KhachHangID == (int)cboKhachHang.SelectedValue
+                         && x.NgayHen.Date == ngayChon);
+
+            if (!xuLyThem)
+            {
+               
+                soLuong = context.LichHens
+                    .Count(x => x.KhachHangID == (int)cboKhachHang.SelectedValue
+                             && x.NgayHen.Date == ngayChon
+                             && x.ID != id);
+                
+            }
+
+
+            if (soLuong > 1)
+            {
+            
+                MessageBox.Show("Không thể đătj thêm lịch hẹn trong ngày hôm !");
+                return;
+            }
+
+            txtNoiDung.Clear();
+            chkTrangThai.Checked = false;
 
             context.SaveChanges();
             LoadLichHen(context.LichHens.ToList());

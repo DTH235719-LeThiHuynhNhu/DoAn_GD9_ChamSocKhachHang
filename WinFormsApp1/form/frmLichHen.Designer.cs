@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             btnLamMoi = new Button();
             label6 = new Label();
             label5 = new Label();
@@ -144,14 +145,22 @@
             dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView2.BackgroundColor = SystemColors.InactiveCaption;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridView2.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridView2.Dock = DockStyle.Fill;
             dataGridView2.Location = new Point(3, 23);
             dataGridView2.MultiSelect = false;
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RightToLeft = RightToLeft.No;
             dataGridView2.RowHeadersWidth = 51;
-            dataGridViewCellStyle1.BackColor = Color.Navy;
-            dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = Color.Navy;
+            dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView2.Size = new Size(829, 252);
             dataGridView2.TabIndex = 0;
             // 
@@ -306,9 +315,9 @@
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(864, 554);
             Controls.Add(dtpTimNgay);
+            Controls.Add(groupBox2);
             Controls.Add(btnLamMoi);
             Controls.Add(txtTimKiem);
-            Controls.Add(groupBox2);
             Controls.Add(btnTimKiem);
             Controls.Add(groupBox1);
             Name = "frmLichHen";
