@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="QLBHDataSet" targetNamespace="http://tempuri.org/QLBHDataSet.xsd" xmlns:mstns="http://tempuri.org/QLBHDataSet.xsd" xmlns="http://tempuri.org/QLBHDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="QLBHDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="QLBHDataSet" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="QLBHDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DanhSachKhachHang" msprop:Generator_RowEvHandlerName="DanhSachKhachHangRowChangeEventHandler" msprop:Generator_RowDeletedName="DanhSachKhachHangRowDeleted" msprop:Generator_RowDeletingName="DanhSachKhachHangRowDeleting" msprop:Generator_RowEvArgName="DanhSachKhachHangRowChangeEvent" msprop:Generator_TablePropName="DanhSachKhachHang" msprop:Generator_RowChangedName="DanhSachKhachHangRowChanged" msprop:Generator_UserTableName="DanhSachKhachHang" msprop:Generator_RowChangingName="DanhSachKhachHangRowChanging" msprop:Generator_RowClassName="DanhSachKhachHangRow" msprop:Generator_TableClassName="DanhSachKhachHangDataTable" msprop:Generator_TableVarName="tableDanhSachKhachHang">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:int" />
+              <xs:element name="HoTen" msprop:Generator_UserColumnName="HoTen" msprop:Generator_ColumnPropNameInTable="HoTenColumn" msprop:Generator_ColumnPropNameInRow="HoTen" msprop:Generator_ColumnVarNameInTable="columnHoTen" type="xs:string" minOccurs="0" />
+              <xs:element name="DienThoai" msprop:Generator_UserColumnName="DienThoai" msprop:Generator_ColumnPropNameInTable="DienThoaiColumn" msprop:Generator_ColumnPropNameInRow="DienThoai" msprop:Generator_ColumnVarNameInTable="columnDienThoai" type="xs:int" minOccurs="0" />
+              <xs:element name="Email" msprop:Generator_UserColumnName="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" type="xs:string" minOccurs="0" />
+              <xs:element name="DiaChi" msprop:Generator_UserColumnName="DiaChi" msprop:Generator_ColumnPropNameInTable="DiaChiColumn" msprop:Generator_ColumnPropNameInRow="DiaChi" msprop:Generator_ColumnVarNameInTable="columnDiaChi" type="xs:string" minOccurs="0" />
+              <xs:element name="LichSuChamSoc" msprop:Generator_UserColumnName="LichSuChamSoc" msprop:Generator_ColumnPropNameInTable="LichSuChamSocColumn" msprop:Generator_ColumnPropNameInRow="LichSuChamSoc" msprop:Generator_ColumnVarNameInTable="columnLichSuChamSoc" type="xs:string" minOccurs="0" />
+              <xs:element name="NhanVienPhuTrach" msprop:Generator_ColumnPropNameInRow="NhanVienPhuTrach" msprop:Generator_ColumnPropNameInTable="NhanVienPhuTrachColumn" msprop:Generator_ColumnVarNameInTable="columnNhanVienPhuTrach" msprop:Generator_UserColumnName="NhanVienPhuTrach" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DanhSachKhachHang" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
